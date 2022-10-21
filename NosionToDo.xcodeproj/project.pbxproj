@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */; };
+		2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */; };
+		2D0B2F0D28FD75C70068FE62 /* IntoductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */; };
+		2D0B2F1228FD75C90068FE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1128FD75C90068FE62 /* Assets.xcassets */; };
+		2D0B2F1528FD75C90068FE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1328FD75C90068FE62 /* LaunchScreen.storyboard */; };
+		2D0B2F2028FD75CA0068FE62 /* NosionToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1F28FD75CA0068FE62 /* NosionToDoTests.swift */; };
+		2D0B2F2A28FD75CA0068FE62 /* NosionToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */; };
+		2D0B2F2C28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */; };
+		2D0B2F3C28FD7DE10068FE62 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3B28FD7DE10068FE62 /* ToDoTableViewController.swift */; };
+		2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */; };
+		2D0B2F4028FD83660068FE62 /* ChangesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3F28FD83660068FE62 /* ChangesTableViewController.swift */; };
+		2D4431652901ABFF00E8FF2A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4431642901ABFF00E8FF2A /* TableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D0B2F1C28FD75CA0068FE62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D0B2EFD28FD75C70068FE62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D0B2F0428FD75C70068FE62;
+			remoteInfo = NosionToDo;
+		};
+		2D0B2F2628FD75CA0068FE62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D0B2EFD28FD75C70068FE62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D0B2F0428FD75C70068FE62;
+			remoteInfo = NosionToDo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D0B2F0528FD75C70068FE62 /* NosionToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NosionToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoductionViewController.swift; sourceTree = "<group>"; };
+		2D0B2F1128FD75C90068FE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D0B2F1428FD75C90068FE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D0B2F1628FD75C90068FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D0B2F1B28FD75CA0068FE62 /* NosionToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NosionToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D0B2F1F28FD75CA0068FE62 /* NosionToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoTests.swift; sourceTree = "<group>"; };
+		2D0B2F2528FD75CA0068FE62 /* NosionToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NosionToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITests.swift; sourceTree = "<group>"; };
+		2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2D0B2F3B28FD7DE10068FE62 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2D0B2F3F28FD83660068FE62 /* ChangesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesTableViewController.swift; sourceTree = "<group>"; };
+		2D4431642901ABFF00E8FF2A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D0B2F0228FD75C70068FE62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0B2F1828FD75C90068FE62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0B2F2228FD75CA0068FE62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D0B2EFC28FD75C70068FE62 = {
+			isa = PBXGroup;
+			children = (
+				2D0B2F0728FD75C70068FE62 /* NosionToDo */,
+				2D0B2F1E28FD75CA0068FE62 /* NosionToDoTests */,
+				2D0B2F2828FD75CA0068FE62 /* NosionToDoUITests */,
+				2D0B2F0628FD75C70068FE62 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D0B2F0628FD75C70068FE62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D0B2F0528FD75C70068FE62 /* NosionToDo.app */,
+				2D0B2F1B28FD75CA0068FE62 /* NosionToDoTests.xctest */,
+				2D0B2F2528FD75CA0068FE62 /* NosionToDoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D0B2F0728FD75C70068FE62 /* NosionToDo */ = {
+			isa = PBXGroup;
+			children = (
+				2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */,
+				2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */,
+				2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */,
+				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
+				2D0B2F3B28FD7DE10068FE62 /* ToDoTableViewController.swift */,
+				2D0B2F3F28FD83660068FE62 /* ChangesTableViewController.swift */,
+				2D4431642901ABFF00E8FF2A /* TableViewCell.swift */,
+				2D0B2F1128FD75C90068FE62 /* Assets.xcassets */,
+				2D0B2F1328FD75C90068FE62 /* LaunchScreen.storyboard */,
+				2D0B2F1628FD75C90068FE62 /* Info.plist */,
+			);
+			path = NosionToDo;
+			sourceTree = "<group>";
+		};
+		2D0B2F1E28FD75CA0068FE62 /* NosionToDoTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D0B2F1F28FD75CA0068FE62 /* NosionToDoTests.swift */,
+			);
+			path = NosionToDoTests;
+			sourceTree = "<group>";
+		};
+		2D0B2F2828FD75CA0068FE62 /* NosionToDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */,
+				2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */,
+			);
+			path = NosionToDoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D0B2F0428FD75C70068FE62 /* NosionToDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D0B2F2F28FD75CA0068FE62 /* Build configuration list for PBXNativeTarget "NosionToDo" */;
+			buildPhases = (
+				2D0B2F0128FD75C70068FE62 /* Sources */,
+				2D0B2F0228FD75C70068FE62 /* Frameworks */,
+				2D0B2F0328FD75C70068FE62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NosionToDo;
+			productName = NosionToDo;
+			productReference = 2D0B2F0528FD75C70068FE62 /* NosionToDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D0B2F1A28FD75C90068FE62 /* NosionToDoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D0B2F3228FD75CA0068FE62 /* Build configuration list for PBXNativeTarget "NosionToDoTests" */;
+			buildPhases = (
+				2D0B2F1728FD75C90068FE62 /* Sources */,
+				2D0B2F1828FD75C90068FE62 /* Frameworks */,
+				2D0B2F1928FD75C90068FE62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D0B2F1D28FD75CA0068FE62 /* PBXTargetDependency */,
+			);
+			name = NosionToDoTests;
+			productName = NosionToDoTests;
+			productReference = 2D0B2F1B28FD75CA0068FE62 /* NosionToDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2D0B2F2428FD75CA0068FE62 /* NosionToDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D0B2F3528FD75CA0068FE62 /* Build configuration list for PBXNativeTarget "NosionToDoUITests" */;
+			buildPhases = (
+				2D0B2F2128FD75CA0068FE62 /* Sources */,
+				2D0B2F2228FD75CA0068FE62 /* Frameworks */,
+				2D0B2F2328FD75CA0068FE62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D0B2F2728FD75CA0068FE62 /* PBXTargetDependency */,
+			);
+			name = NosionToDoUITests;
+			productName = NosionToDoUITests;
+			productReference = 2D0B2F2528FD75CA0068FE62 /* NosionToDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D0B2EFD28FD75C70068FE62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					2D0B2F0428FD75C70068FE62 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					2D0B2F1A28FD75C90068FE62 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 2D0B2F0428FD75C70068FE62;
+					};
+					2D0B2F2428FD75CA0068FE62 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 2D0B2F0428FD75C70068FE62;
+					};
+				};
+			};
+			buildConfigurationList = 2D0B2F0028FD75C70068FE62 /* Build configuration list for PBXProject "NosionToDo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D0B2EFC28FD75C70068FE62;
+			productRefGroup = 2D0B2F0628FD75C70068FE62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D0B2F0428FD75C70068FE62 /* NosionToDo */,
+				2D0B2F1A28FD75C90068FE62 /* NosionToDoTests */,
+				2D0B2F2428FD75CA0068FE62 /* NosionToDoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D0B2F0328FD75C70068FE62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D0B2F1528FD75C90068FE62 /* LaunchScreen.storyboard in Resources */,
+				2D0B2F1228FD75C90068FE62 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0B2F1928FD75C90068FE62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0B2F2328FD75CA0068FE62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D0B2F0128FD75C70068FE62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D0B2F0D28FD75C70068FE62 /* IntoductionViewController.swift in Sources */,
+				2D0B2F3C28FD7DE10068FE62 /* ToDoTableViewController.swift in Sources */,
+				2D0B2F4028FD83660068FE62 /* ChangesTableViewController.swift in Sources */,
+				2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */,
+				2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */,
+				2D4431652901ABFF00E8FF2A /* TableViewCell.swift in Sources */,
+				2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0B2F1728FD75C90068FE62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D0B2F2028FD75CA0068FE62 /* NosionToDoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D0B2F2128FD75CA0068FE62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D0B2F2C28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift in Sources */,
+				2D0B2F2A28FD75CA0068FE62 /* NosionToDoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D0B2F1D28FD75CA0068FE62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D0B2F0428FD75C70068FE62 /* NosionToDo */;
+			targetProxy = 2D0B2F1C28FD75CA0068FE62 /* PBXContainerItemProxy */;
+		};
+		2D0B2F2728FD75CA0068FE62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D0B2F0428FD75C70068FE62 /* NosionToDo */;
+			targetProxy = 2D0B2F2628FD75CA0068FE62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D0B2F1328FD75C90068FE62 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D0B2F1428FD75C90068FE62 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D0B2F2D28FD75CA0068FE62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D0B2F2E28FD75CA0068FE62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D0B2F3028FD75CA0068FE62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NosionToDo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1111.NosionToDo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D0B2F3128FD75CA0068FE62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NosionToDo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1111.NosionToDo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2D0B2F3328FD75CA0068FE62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1111.NosionToDoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NosionToDo.app/NosionToDo";
+			};
+			name = Debug;
+		};
+		2D0B2F3428FD75CA0068FE62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1111.NosionToDoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NosionToDo.app/NosionToDo";
+			};
+			name = Release;
+		};
+		2D0B2F3628FD75CA0068FE62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1111.NosionToDoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NosionToDo;
+			};
+			name = Debug;
+		};
+		2D0B2F3728FD75CA0068FE62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-1111.NosionToDoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NosionToDo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D0B2F0028FD75C70068FE62 /* Build configuration list for PBXProject "NosionToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D0B2F2D28FD75CA0068FE62 /* Debug */,
+				2D0B2F2E28FD75CA0068FE62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D0B2F2F28FD75CA0068FE62 /* Build configuration list for PBXNativeTarget "NosionToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D0B2F3028FD75CA0068FE62 /* Debug */,
+				2D0B2F3128FD75CA0068FE62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D0B2F3228FD75CA0068FE62 /* Build configuration list for PBXNativeTarget "NosionToDoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D0B2F3328FD75CA0068FE62 /* Debug */,
+				2D0B2F3428FD75CA0068FE62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D0B2F3528FD75CA0068FE62 /* Build configuration list for PBXNativeTarget "NosionToDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D0B2F3628FD75CA0068FE62 /* Debug */,
+				2D0B2F3728FD75CA0068FE62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D0B2EFD28FD75C70068FE62 /* Project object */;
+}
