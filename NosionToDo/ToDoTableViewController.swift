@@ -15,7 +15,7 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        //tableView.register(TableViewCell.self, forCellReuseIdentifier: idCell)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: idCell)
     }
     // MARK: - TableViewDataSource
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
