@@ -57,7 +57,8 @@ class LoginViewController: UIViewController {
     
     
     @objc func segueButtonAction() {
-        
+        let thirdViewController = ToDoTableViewController();
+        self.navigationController?.pushViewController(thirdViewController, animated: true)
     }
 
 }

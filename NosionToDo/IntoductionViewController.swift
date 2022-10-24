@@ -75,6 +75,9 @@ class IntroductionViewController: UIViewController {
     
     @objc func buttonClicked() -> () {
         self.alert(title: "Your name", message: "What is your name", style: .alert)
+        
+        
+        
     }
     
     //2
@@ -84,6 +87,9 @@ class IntroductionViewController: UIViewController {
         let actionFirst = UIAlertAction(title: "ok", style: .default) { (action) in
             let text = alertController.textFields?.first
             self.logotype.text! = "Hello"
+            
+            let secondViewController = LoginViewController();
+            self.navigationController?.pushViewController(secondViewController, animated: true)
         
         }
         
@@ -95,6 +101,12 @@ class IntroductionViewController: UIViewController {
         alertController.addAction(actionFirst)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     
 }
  
