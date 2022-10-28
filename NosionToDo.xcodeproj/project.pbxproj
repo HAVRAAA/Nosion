@@ -15,10 +15,9 @@
 		2D0B2F2028FD75CA0068FE62 /* NosionToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1F28FD75CA0068FE62 /* NosionToDoTests.swift */; };
 		2D0B2F2A28FD75CA0068FE62 /* NosionToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */; };
 		2D0B2F2C28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */; };
-		2D0B2F3C28FD7DE10068FE62 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3B28FD7DE10068FE62 /* ToDoTableViewController.swift */; };
 		2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */; };
-		2D0B2F4028FD83660068FE62 /* ChangesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3F28FD83660068FE62 /* ChangesTableViewController.swift */; };
-		2D4431652901ABFF00E8FF2A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4431642901ABFF00E8FF2A /* TableViewCell.swift */; };
+		2D9B0F3F2907DDE400975F7A /* GeneralListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F3E2907DDE400975F7A /* GeneralListViewController.swift */; };
+		2D9B0F412907DEAF00975F7A /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +50,9 @@
 		2D0B2F2528FD75CA0068FE62 /* NosionToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NosionToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITests.swift; sourceTree = "<group>"; };
 		2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2D0B2F3B28FD7DE10068FE62 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		2D0B2F3F28FD83660068FE62 /* ChangesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesTableViewController.swift; sourceTree = "<group>"; };
-		2D4431642901ABFF00E8FF2A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2D9B0F3E2907DDE400975F7A /* GeneralListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListViewController.swift; sourceTree = "<group>"; };
+		2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangesViewController.swift; path = ../../../Downloads/ChangesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +107,8 @@
 				2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */,
 				2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */,
 				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
-				2D0B2F3B28FD7DE10068FE62 /* ToDoTableViewController.swift */,
-				2D0B2F3F28FD83660068FE62 /* ChangesTableViewController.swift */,
-				2D4431642901ABFF00E8FF2A /* TableViewCell.swift */,
+				2D9B0F3E2907DDE400975F7A /* GeneralListViewController.swift */,
+				2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */,
 				2D0B2F1128FD75C90068FE62 /* Assets.xcassets */,
 				2D0B2F1328FD75C90068FE62 /* LaunchScreen.storyboard */,
 				2D0B2F1628FD75C90068FE62 /* Info.plist */,
@@ -266,12 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D9B0F412907DEAF00975F7A /* ChangesViewController.swift in Sources */,
 				2D0B2F0D28FD75C70068FE62 /* IntoductionViewController.swift in Sources */,
-				2D0B2F3C28FD7DE10068FE62 /* ToDoTableViewController.swift in Sources */,
-				2D0B2F4028FD83660068FE62 /* ChangesTableViewController.swift in Sources */,
+				2D9B0F3F2907DDE400975F7A /* GeneralListViewController.swift in Sources */,
 				2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */,
 				2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */,
-				2D4431652901ABFF00E8FF2A /* TableViewCell.swift in Sources */,
 				2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

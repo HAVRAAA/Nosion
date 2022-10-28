@@ -9,7 +9,6 @@ import UIKit
 
 class IntroductionViewController: UIViewController {
     
-    
     var displaySecondButton = UIButton()
     
     let startButton: UIButton = {
@@ -43,16 +42,14 @@ class IntroductionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = "Home"
         view.addSubview(startButton)
         view.addSubview(logotype)
         view.addSubview(helpText)
         view.backgroundColor = .systemPink
         setupConstraint()
-        
     }
-    
+
     func setupConstraint() {
         NSLayoutConstraint.activate([
             startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -69,32 +66,23 @@ class IntroductionViewController: UIViewController {
             helpText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             helpText.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 3/7),
             helpText.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        
         ])
     }
     
     @objc func buttonClicked() -> () {
-        self.alert(title: "Your name", message: "What is your name", style: .alert)
-        
-        
-        
+        self.alert(title: "Print your name", message: "What is your name?", style: .alert)
     }
     
     //2
-    
     func alert(title: String, message:String, style: UIAlertController.Style) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         let actionFirst = UIAlertAction(title: "ok", style: .default) { (action) in
-            let text = alertController.textFields?.first
-            self.logotype.text! = "Hello"
+            let text = alertController.textFields?.first?.text
+            self.logotype.text! = "Hello, \(text!)"
             
             let secondViewController = LoginViewController();
             self.navigationController?.pushViewController(secondViewController, animated: true)
-        
         }
-        
-        
-        
         alertController.addTextField { (textField) in
             
         }
@@ -102,11 +90,8 @@ class IntroductionViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
 }
  

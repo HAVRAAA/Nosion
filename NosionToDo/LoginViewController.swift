@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
     
     let nameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Press your name"
+        textField.placeholder = "What is your job?"
         textField.backgroundColor = .systemGreen
         textField.textColor = .black
         textField.textAlignment = .center
@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
         button.backgroundColor = UIColor.systemGreen
         button.addTarget(nil, action: #selector(segueButtonAction), for: .touchUpInside)
         button.layer.cornerRadius = 20
+        button.setTitle("Enter to List", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     
@@ -36,8 +36,6 @@ class LoginViewController: UIViewController {
         view.addSubview(nameTextField)
         view.addSubview(segueButton)
         setupConstraint()
-        
-        
     }
     
     func setupConstraint() {
@@ -51,14 +49,11 @@ class LoginViewController: UIViewController {
             segueButton.topAnchor.constraint(equalTo: nameTextField.bottomAnchor,constant: 100),
             segueButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3),
             segueButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/10)
-        
         ])
     }
     
-    
     @objc func segueButtonAction() {
-        let thirdViewController = ToDoTableViewController();
+        let thirdViewController = GeneralListViewController();
         self.navigationController?.pushViewController(thirdViewController, animated: true)
     }
-
 }
