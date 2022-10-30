@@ -13,8 +13,6 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     var transOne = "Maks, everything is working normally"
     var listToDo = ["Buy a fish", "Buy a bread", "Buy a unicorn"]
     
-    let addButtonNav = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
-    let clearButtonNav = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addSecondElement))
     
     let clearButton: UIButton = {
         let button = UIButton(type: .system)
@@ -39,8 +37,11 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
         view.addSubview(tableSheet)
         view.addSubview(clearButton)
         
-        self.navigationItem.rightBarButtonItem = addButtonNav
-        self.navigationController!.navigationBar.barTintColor = UIColor.red
+        // UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
+        // UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addSecondElement))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
+        // self.navigationController!.navigationBar.barTintColor = UIColor.red
         self.title = "This is title"
         self.tableSheet.delegate = self
         self.tableSheet.dataSource = self
@@ -75,9 +76,9 @@ class GeneralListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func cleaned() {
-        let dest = ChangesViewController(nibName:"ChangesViewController", bundle: nil)
+        let dest = ChangesViewController()
         dest.transTwoV = transOne
-        navigationController?.pushViewController(ChangesViewController(), animated: true)
+        navigationController?.pushViewController(dest, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
