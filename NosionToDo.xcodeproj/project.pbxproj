@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */; };
 		2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */; };
-		2D0B2F0D28FD75C70068FE62 /* IntoductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */; };
+		2D0B2F0D28FD75C70068FE62 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */; };
 		2D0B2F1228FD75C90068FE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1128FD75C90068FE62 /* Assets.xcassets */; };
 		2D0B2F1528FD75C90068FE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1328FD75C90068FE62 /* LaunchScreen.storyboard */; };
 		2D0B2F2028FD75CA0068FE62 /* NosionToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F1F28FD75CA0068FE62 /* NosionToDoTests.swift */; };
 		2D0B2F2A28FD75CA0068FE62 /* NosionToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */; };
 		2D0B2F2C28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */; };
 		2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */; };
-		2D9B0F3F2907DDE400975F7A /* GeneralListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F3E2907DDE400975F7A /* GeneralListViewController.swift */; };
+		2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F3E2907DDE400975F7A /* ListViewController.swift */; };
 		2D9B0F412907DEAF00975F7A /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +41,7 @@
 		2D0B2F0528FD75C70068FE62 /* NosionToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NosionToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoductionViewController.swift; sourceTree = "<group>"; };
+		2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		2D0B2F1128FD75C90068FE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D0B2F1428FD75C90068FE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D0B2F1628FD75C90068FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITests.swift; sourceTree = "<group>"; };
 		2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		2D9B0F3E2907DDE400975F7A /* GeneralListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListViewController.swift; sourceTree = "<group>"; };
+		2D9B0F3E2907DDE400975F7A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangesViewController.swift; path = ../../../Downloads/ChangesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,9 +105,9 @@
 			children = (
 				2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */,
 				2D0B2F0A28FD75C70068FE62 /* SceneDelegate.swift */,
-				2D0B2F0C28FD75C70068FE62 /* IntoductionViewController.swift */,
+				2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */,
 				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
-				2D9B0F3E2907DDE400975F7A /* GeneralListViewController.swift */,
+				2D9B0F3E2907DDE400975F7A /* ListViewController.swift */,
 				2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */,
 				2D0B2F1128FD75C90068FE62 /* Assets.xcassets */,
 				2D0B2F1328FD75C90068FE62 /* LaunchScreen.storyboard */,
@@ -264,8 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9B0F412907DEAF00975F7A /* ChangesViewController.swift in Sources */,
-				2D0B2F0D28FD75C70068FE62 /* IntoductionViewController.swift in Sources */,
-				2D9B0F3F2907DDE400975F7A /* GeneralListViewController.swift in Sources */,
+				2D0B2F0D28FD75C70068FE62 /* IntroductionViewController.swift in Sources */,
+				2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */,
 				2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */,
 				2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */,
 				2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */,
