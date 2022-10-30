@@ -75,18 +75,13 @@ class IntroductionViewController: UIViewController {
     @objc func startClicked() {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
-    
+
 }
  
-
-
-
 /*
  @objc func buttonClicked() -> () {
      self.alert(title: "Print your name", message: "What is your name?", style: .alert)
  }
- 
- 
  
  func alert(title: String, message:String, style: UIAlertController.Style) {
      let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
@@ -102,8 +97,4 @@ class IntroductionViewController: UIViewController {
      }
      alertController.addAction(actionFirst)
      self.present(alertController, animated: true, completion: nil)
- 
- 
- 
- 
  */

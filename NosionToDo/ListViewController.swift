@@ -13,7 +13,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var transOne = "Maks, everything is working normally"
     var listToDo = ["Buy a fish", "Buy a bread", "Buy a unicorn"]
     
-    
     let clearButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -124,22 +123,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func addedNewElement() {
-    
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
             self.alertNewTask(title: "New task", message: "Type new task", style: .alert)
             self.tableSheet.reloadData()
         })
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     @objc func addSecondElement() {
@@ -162,9 +149,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func transitionClicked() {
         let destination = ChangesViewController()
         destination.transTwoV = listToDo
-        
-        
-        
         navigationController?.pushViewController(destination, animated: true)
     }
     
@@ -178,30 +162,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         alertController.addTextField { (textField) in
-            
         }
         
         alertController.addAction(actionFirst)
         self.present(alertController, animated: true, completion: nil)
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // MARK: TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
