@@ -6,12 +6,27 @@
 //
 
 import UIKit
+import CoreData
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    struct Constant {
+        static let entity = "Task"
+        static let sortTask = "task"
+        static let sortDone = "done"
+    }
     
     var identifier = "idCell"
-    var transOne = "Maks, everything is working normally"
-    var listToDo = ["Buy a fish", "Buy a bread", "Buy a unicorn"]
+    var listToDo: [String] = []
+    
+    // Створення контролера
+    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entity)
+        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.instatnce.context, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultController
+    }()
     
     let clearButton: UIButton = {
         let button = UIButton(type: .system)
@@ -80,15 +95,30 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
         // UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addSecondElement))
         
+        // Navigation
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
-        // self.navigationController!.navigationBar.barTintColor = UIColor.red
+        
         self.title = "This is title"
+        
+        // For TableView
         self.tableSheet.delegate = self
         self.tableSheet.dataSource = self
         self.tableSheet.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         
+        // Style ViewController
         view.backgroundColor = .systemRed
+        
+        // Helpful Function
         setupAnchors()
+        fetchCoreData() // Показуємо дані з таблиці
+    }
+    
+    func fetchCoreData() {
+        do {
+            try fetchResultController.performFetch()
+        } catch {
+            print(error)
+        }
     }
     
     func setupAnchors() {
@@ -123,18 +153,44 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func addedNewElement() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            self.alertNewTask(title: "New task", message: "Type new task", style: .alert)
-            self.tableSheet.reloadData()
-        })
+        let alertCont = UIAlertController(title: "New task", message: "Print a new task", preferredStyle: .alert)
+        let firstAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            let text = alertCont.textFields!.first!.text
+            let managedObject = Task()
+            
+            if text!.count != 0 {
+                managedObject.task = text
+                CoreDataManager.instatnce.saveContext()
+                self.fetchCoreData()
+                self.tableSheet.reloadData()
+            }
+        }
+        
+        let secondAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        alertCont.addAction(firstAction)
+        alertCont.addAction(secondAction)
+        
+        alertCont.addTextField(configurationHandler: nil)
+        self.present(alertCont, animated: true, completion: nil)
     }
     
     @objc func addSecondElement() {
-        print("Second ")
+        
     }
     
     @objc func cleaned() {
-        listToDo = []
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entity)
+        do {
+            let results = try CoreDataManager.instatnce.context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject] {
+                CoreDataManager.instatnce.context.delete(result)
+            }
+        } catch {
+            print(error)
+        }
+        CoreDataManager.instatnce.saveContext()
+        self.fetchCoreData()
         self.tableSheet.reloadData()
     }
     
@@ -153,31 +209,49 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // Alert
-    func alertNewTask(title: String, message:String, style: UIAlertController.Style) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let actionFirst = UIAlertAction(title: "ok", style: .default) { (action) in
-            let text = alertController.textFields?.first?.text
-            self.listToDo.append(text!)
-            self.tableSheet.reloadData()
-        }
-        
-        alertController.addTextField { (textField) in
-        }
-        
-        alertController.addAction(actionFirst)
-        self.present(alertController, animated: true, completion: nil)
-    
-    }
+//    func alertNewTask(title: String, message:String, style: UIAlertController.Style) {
+//        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+//        let actionFirst = UIAlertAction(title: "Ok", style: .default) { (action) in
+//            let text = alertController.textFields?.first?.text
+//        }
+//        let secondAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//
+//        alertController.addTextField { (textField) in
+//        }
+//
+//        alertController.addAction(actionFirst)
+//        alertController.addAction(secondAction)
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     // MARK: TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listToDo.count
+        if let sections = fetchResultController.sections {
+            return sections[section].numberOfObjects
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        cell.textLabel!.text = self.listToDo[indexPath.row]
-        cell.backgroundColor = UIColor.systemGreen
+        let taskInCell = fetchResultController.object(at: indexPath) as! Task
+        cell.textLabel!.text = taskInCell.task
+        // cell.textLabel!.text = self.listToDo[indexPath.row]
+        if taskInCell.done {
+            cell.backgroundColor = .systemGreen
+        } else {
+            cell.backgroundColor = .red
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let taskInCell = fetchResultController.object(at: indexPath) as! Task
+        taskInCell.done = !taskInCell.done
+        CoreDataManager.instatnce.saveContext()
+        self.fetchCoreData()
+        self.tableSheet.reloadData()
     }
 }

@@ -75,7 +75,6 @@ class IntroductionViewController: UIViewController {
     @objc func startClicked() {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
-
 }
  
 /*
