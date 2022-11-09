@@ -24,7 +24,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entity)
         let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.instatnce.context, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                 managedObjectContext: CoreDataManager.shared.context,
+                                                                 sectionNameKeyPath: nil,
+                                                                 cacheName: nil)
         return fetchedResultController
     }()
     
@@ -96,14 +99,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addSecondElement))
         
         // Navigation
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
         
-        self.title = "This is title"
+        title = "This is title"
         
         // For TableView
-        self.tableSheet.delegate = self
-        self.tableSheet.dataSource = self
-        self.tableSheet.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableSheet.delegate = self
+        tableSheet.dataSource = self
+        tableSheet.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         
         // Style ViewController
         view.backgroundColor = .systemRed
@@ -154,15 +157,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func addedNewElement() {
         let alertCont = UIAlertController(title: "New task", message: "Print a new task", preferredStyle: .alert)
-        let firstAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+        let firstAction = UIAlertAction(title: "Ok", style: .default) { [weak self] (action) in
             let text = alertCont.textFields!.first!.text
             let managedObject = Task()
             
             if text!.count != 0 {
                 managedObject.task = text
-                CoreDataManager.instatnce.saveContext()
-                self.fetchCoreData()
-                self.tableSheet.reloadData()
+                CoreDataManager.shared.saveContext()
+                self?.fetchCoreData()
+                self?.tableSheet.reloadData()
             }
         }
         
@@ -182,16 +185,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func cleaned() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entity)
         do {
-            let results = try CoreDataManager.instatnce.context.fetch(fetchRequest)
+            let results = try CoreDataManager.shared.context.fetch(fetchRequest)
             for result in results as! [NSManagedObject] {
-                CoreDataManager.instatnce.context.delete(result)
+                CoreDataManager.shared.context.delete(result)
             }
         } catch {
             print(error)
         }
-        CoreDataManager.instatnce.saveContext()
-        self.fetchCoreData()
-        self.tableSheet.reloadData()
+        CoreDataManager.shared.saveContext()
+        fetchCoreData()
+        tableSheet.reloadData()
     }
     
     @objc func doneTrans() {
@@ -204,7 +207,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func transitionClicked() {
         let destination = ChangesViewController()
-        destination.transTwoV = listToDo
+        destination.listOfTodo = listToDo
         navigationController?.pushViewController(destination, animated: true)
     }
     
@@ -247,11 +250,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let taskInCell = fetchResultController.object(at: indexPath) as! Task
         taskInCell.done = !taskInCell.done
-        CoreDataManager.instatnce.saveContext()
-        self.fetchCoreData()
-        self.tableSheet.reloadData()
+        CoreDataManager.shared.saveContext()
+        fetchCoreData()
+        tableSheet.reloadData()
     }
 }

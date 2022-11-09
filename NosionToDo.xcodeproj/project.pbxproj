@@ -16,12 +16,13 @@
 		2D0B2F2C28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */; };
 		2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */; };
 		2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F3E2907DDE400975F7A /* ListViewController.swift */; };
-		2D9B0F412907DEAF00975F7A /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */; };
 		2DD832C629105F5200FC18E2 /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DD832C429105F5200FC18E2 /* CoreDataDemo.xcdatamodeld */; };
 		2DD832CC2911B1CF00FC18E2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */; };
 		2DD833122912A41D00FC18E2 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833112912A41D00FC18E2 /* AddViewController.swift */; };
 		2DD833152917F70900FC18E2 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833132917F70900FC18E2 /* Task+CoreDataClass.swift */; };
 		2DD833162917F70900FC18E2 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833142917F70900FC18E2 /* Task+CoreDataProperties.swift */; };
+		AA2DA5FA291C155C00A4BEB6 /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */; };
+		AA99557D291C186B00717E15 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99557C291C186B00717E15 /* UITableViewCell + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +56,13 @@
 		2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosionToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2D9B0F3E2907DDE400975F7A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangesViewController.swift; path = ../../../Downloads/ChangesViewController.swift; sourceTree = "<group>"; };
 		2DD832C529105F5200FC18E2 /* CoreDataDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataDemo.xcdatamodel; sourceTree = "<group>"; };
 		2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2DD833112912A41D00FC18E2 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		2DD833132917F70900FC18E2 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2DD833142917F70900FC18E2 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesViewController.swift; sourceTree = "<group>"; };
+		AA99557C291C186B00717E15 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,14 +113,15 @@
 		2D0B2F0728FD75C70068FE62 /* NosionToDo */ = {
 			isa = PBXGroup;
 			children = (
+				AA99557B291C186100717E15 /* Extensions */,
 				2DD832CF2911C4DE00FC18E2 /* Model */,
 				2DD832CD2911C43A00FC18E2 /* Entity */,
-				2DD832CE2911C45300FC18E2 /* Supporting Files */,
+				2DD832CE2911C45300FC18E2 /* Config */,
 				2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */,
 				2DD833112912A41D00FC18E2 /* AddViewController.swift */,
 				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
 				2D9B0F3E2907DDE400975F7A /* ListViewController.swift */,
-				2D9B0F402907DEAF00975F7A /* ChangesViewController.swift */,
+				AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */,
 			);
 			path = NosionToDo;
 			sourceTree = "<group>";
@@ -149,7 +152,7 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		2DD832CE2911C45300FC18E2 /* Supporting Files */ = {
+		2DD832CE2911C45300FC18E2 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				2D0B2F0828FD75C70068FE62 /* AppDelegate.swift */,
@@ -157,7 +160,7 @@
 				2D0B2F1128FD75C90068FE62 /* Assets.xcassets */,
 				2D0B2F1628FD75C90068FE62 /* Info.plist */,
 			);
-			path = "Supporting Files";
+			path = Config;
 			sourceTree = "<group>";
 		};
 		2DD832CF2911C4DE00FC18E2 /* Model */ = {
@@ -167,6 +170,14 @@
 				2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AA99557B291C186100717E15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA99557C291C186B00717E15 /* UITableViewCell + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,16 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D9B0F412907DEAF00975F7A /* ChangesViewController.swift in Sources */,
 				2DD832C629105F5200FC18E2 /* CoreDataDemo.xcdatamodeld in Sources */,
 				2D0B2F0D28FD75C70068FE62 /* IntroductionViewController.swift in Sources */,
 				2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */,
+				AA99557D291C186B00717E15 /* UITableViewCell + Extension.swift in Sources */,
 				2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */,
 				2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */,
 				2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */,
 				2DD832CC2911B1CF00FC18E2 /* CoreDataManager.swift in Sources */,
 				2DD833122912A41D00FC18E2 /* AddViewController.swift in Sources */,
 				2DD833162917F70900FC18E2 /* Task+CoreDataProperties.swift in Sources */,
+				AA2DA5FA291C155C00A4BEB6 /* ChangesViewController.swift in Sources */,
 				2DD833152917F70900FC18E2 /* Task+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +482,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NosionToDo/Info.plist;
+				INFOPLIST_FILE = NosionToDo/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -497,7 +509,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Q8L7NR5T8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NosionToDo/Info.plist;
+				INFOPLIST_FILE = NosionToDo/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

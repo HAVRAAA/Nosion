@@ -9,9 +9,7 @@ import UIKit
 
 class ChangesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var transTwoV = ""
-    var idCellDone = "done"
-    var idCellUndone = "undone"
+    var listOfTodo: [String] = []
     
     /* let segment: UISegmentedControl = {
         let array = ["Done", "Undone"]
@@ -53,18 +51,18 @@ class ChangesViewController: UIViewController, UITableViewDataSource, UITableVie
         view.addSubview(doneSheet)
         view.addSubview(undoneSheet)
         
-        label.text = transTwoV
-        print(transTwoV)
+        label.text = listOfTodo.first
+        print(listOfTodo)
         
         view.backgroundColor = UIColor.white
         
-        self.undoneSheet.register(UITableViewCell.self, forCellReuseIdentifier: idCellUndone)
-        self.undoneSheet.dataSource = self
-        self.undoneSheet.delegate = self
+        undoneSheet.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.idCellUndone)
+        undoneSheet.dataSource = self
+        undoneSheet.delegate = self
         
-        self.doneSheet.register(UITableViewCell.self, forCellReuseIdentifier: idCellDone)
-        self.doneSheet.dataSource = self
-        self.doneSheet.delegate = self
+        doneSheet.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.doneIdentifier)
+        doneSheet.dataSource = self
+        doneSheet.delegate = self
         setupAnchors()
     }
  
@@ -103,14 +101,14 @@ class ChangesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("200")
-        if tableView == self.doneSheet {
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellDone, for: indexPath);
+        if tableView == doneSheet {
+            let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.doneIdentifier, for: indexPath);
             cell.backgroundColor = UIColor.systemGreen
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: idCellUndone, for: indexPath);
+            let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.idCellUndone, for: indexPath);
             cell.backgroundColor = UIColor.systemRed
-            cell.textLabel!.text = transTwoV
+            cell.textLabel!.text = listOfTodo.first
             return cell
         }
     }
