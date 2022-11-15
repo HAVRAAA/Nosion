@@ -38,10 +38,9 @@ class AddViewController: UIViewController {
         return button
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+
         view.addSubview(textFieldName)
         view.addSubview(buttonAdd)
         setupAnchors()
@@ -64,8 +63,6 @@ class AddViewController: UIViewController {
             buttonAdd.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -50),
             buttonAdd.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
             buttonAdd.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 2.5/4),
-            
-            
         ])
     }
     

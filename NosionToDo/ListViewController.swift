@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     struct Constant {
         static let entity = "Task"
         static let sortTask = "task"
@@ -18,8 +17,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var identifier = "idCell"
     var listToDo: [String] = []
+    var idSegue = 0
+    var nameUser = ""
     
-    // Створення контролера
+    // Create controller
     var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entity)
         let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
@@ -31,15 +32,34 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         return fetchedResultController
     }()
     
+    let welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.white
+        label.tintColor = UIColor.black
+        label.numberOfLines = 0
+        label.layer.cornerRadius = 10
+        label.layer.borderWidth = 2
+        label.layer.zPosition = 4
+        label.text = "Hello, world"
+        label.textAlignment = .center
+        label.clipsToBounds = true
+        
+        
+        return label
+    }()
+
     let clearButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(cleaned), for: .touchUpInside)
-        button.backgroundColor = UIColor.systemPink
+        button.backgroundColor = UIColor.white
+        button.layer.borderWidth = 2
         button.setTitle("C L E A N", for: .normal)
         button.tintColor = UIColor.black
         button.layer.zPosition = 2
         button.layer.cornerRadius = 20
+        button.isHidden = true
         return button
     }()
     
@@ -47,8 +67,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(doneTrans), for: .touchUpInside)
-        button.backgroundColor = UIColor.systemPink
-        button.setTitle("DONE", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.setImage(UIImage(named: "taskFull.png"), for: .normal)
+        button.contentMode = .scaleToFill
         button.tintColor = UIColor.black
         button.layer.zPosition = 2
         button.layer.cornerRadius = 20
@@ -59,8 +80,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(undoneTrans), for: .touchUpInside)
-        button.backgroundColor = UIColor.systemPink
-        button.setTitle("UNDONE", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.setImage(UIImage(named: "taskEmpty.png"), for: .normal)
+        button.contentMode = .scaleToFill
         button.tintColor = UIColor.black
         button.layer.zPosition = 2
         button.layer.cornerRadius = 20
@@ -71,8 +93,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(nil, action: #selector(transitionClicked), for: .touchUpInside)
-        button.backgroundColor = UIColor.systemPink
-        button.setTitle("TRANSITION", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.setImage(UIImage(named: "arrow.png"), for: .normal)
         button.tintColor = UIColor.black
         button.layer.zPosition = 2
         button.layer.cornerRadius = 20
@@ -84,6 +106,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.backgroundColor = .white
         table.layer.cornerRadius = 20
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.layer.borderWidth = 2
         return table
     }()
 
@@ -91,17 +114,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         view.addSubview(tableSheet)
         view.addSubview(clearButton)
-        view.addSubview(doneButton)
-        view.addSubview(undoneButton)
-        view.addSubview(transitionButton)
-        
+        view.addSubview(welcomeLabel)
+        view.backgroundColor = .gray
         // UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
         // UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addSecondElement))
         
         // Navigation
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addedNewElement))
-        
-        title = "This is title"
         
         // For TableView
         tableSheet.delegate = self
@@ -109,11 +128,46 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableSheet.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
         
         // Style ViewController
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .white
         
         // Helpful Function
+        greetingMessage()
         setupAnchors()
         fetchCoreData() // Показуємо дані з таблиці
+        addedImageToNavBar()
+    }
+    func greetingMessage() {
+        if !nameUser.isEmpty {
+            welcomeLabel.text = "Hello, \(nameUser)."
+        } else {
+            welcomeLabel.text = "Hello, world"
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+            self.welcomeLabel.isHidden = true
+        })
+    }
+    
+    func addedImageToNavBar() {
+        if let navController = navigationController {
+            let imageLogo = UIImage(named: "NosionLogo.png")
+            
+            let widthNavBar = navController.navigationBar.frame.width
+            let heightNavBar = navController.navigationBar.frame.height
+            
+            let widthForView = widthNavBar * 0.4
+            
+            
+            let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: widthForView, height: heightNavBar))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: widthForView, height: heightNavBar))
+                                       
+            
+            imageView.image = imageLogo
+            imageView.contentMode = .scaleAspectFit
+            logoContainer.addSubview(imageView)
+            
+            navigationItem.titleView = logoContainer
+        }
     }
     
     func fetchCoreData() {
@@ -128,30 +182,35 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let margins = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             tableSheet.topAnchor.constraint(equalTo: margins.topAnchor, constant: 10),
-            tableSheet.bottomAnchor.constraint(equalTo: margins.centerYAnchor, constant: 100),
+            tableSheet.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -10),
             tableSheet.leftAnchor.constraint(equalTo: margins.leftAnchor),
             tableSheet.rightAnchor.constraint(equalTo: margins.rightAnchor),
             tableSheet.centerYAnchor.constraint(equalTo: margins.centerYAnchor),
             
-            clearButton.topAnchor.constraint(equalTo: tableSheet.bottomAnchor, constant: 10),
+            clearButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -20),
             clearButton.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/15),
             clearButton.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -10),
             clearButton.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 10),
             
-            doneButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor, constant: 20),
-            doneButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-            doneButton.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 1/4),
-            doneButton.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 10),
+            welcomeLabel.topAnchor.constraint(equalTo: tableSheet.topAnchor, constant: 100),
+            welcomeLabel.rightAnchor.constraint(equalTo: tableSheet.rightAnchor, constant: -20),
+            welcomeLabel.leftAnchor.constraint(equalTo: tableSheet.leftAnchor, constant: 20),
+            welcomeLabel.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1.5/10)
             
-            undoneButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor, constant: 20),
-            undoneButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-            undoneButton.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 1/4),
-            undoneButton.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -10),
-            
-            transitionButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor, constant: 20),
-            transitionButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-            transitionButton.rightAnchor.constraint(equalTo: undoneButton.leftAnchor, constant: -15),
-            transitionButton.leftAnchor.constraint(equalTo: doneButton.rightAnchor, constant: 15)
+//            doneButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor, constant: 20),
+//            doneButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+//            doneButton.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 1/4),
+//            doneButton.leftAnchor.constraint(equalTo: margins.leftAnchor, constant: 10),
+//
+//            undoneButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor, constant: 20),
+//            undoneButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+//            undoneButton.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 1/4),
+//            undoneButton.rightAnchor.constraint(equalTo: margins.rightAnchor, constant: -10),
+//
+//            transitionButton.topAnchor.constraint(equalTo: clearButton.bottomAnchor, constant: 20),
+//            transitionButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+//            transitionButton.rightAnchor.constraint(equalTo: undoneButton.leftAnchor, constant: -15),
+//            transitionButton.leftAnchor.constraint(equalTo: doneButton.rightAnchor, constant: 15)
         ])
     }
     
@@ -168,12 +227,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self?.tableSheet.reloadData()
             }
         }
-        
         let secondAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
+
         alertCont.addAction(firstAction)
         alertCont.addAction(secondAction)
-        
+
         alertCont.addTextField(configurationHandler: nil)
         self.present(alertCont, animated: true, completion: nil)
     }
@@ -195,14 +253,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         CoreDataManager.shared.saveContext()
         fetchCoreData()
         tableSheet.reloadData()
+        clearButton.isHidden = true
     }
     
     @objc func doneTrans() {
-        
+        idSegue = 2
     }
     
     @objc func undoneTrans() {
-        
+        idSegue = 1
     }
     
     @objc func transitionClicked() {
@@ -230,6 +289,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchResultController.sections {
+            if sections[section].numberOfObjects > 0 {
+                clearButton.isHidden = false
+            } else {
+                clearButton.isHidden = true
+            }
             return sections[section].numberOfObjects
         } else {
             return 0
@@ -255,5 +319,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         CoreDataManager.shared.saveContext()
         fetchCoreData()
         tableSheet.reloadData()
+    }
+    
+    func addedExclamationMark(text: String) -> String {
+        if text.isEmpty {
+            return ""
+        } else {
+            return "\(text)!"
+        }
+        return "\(text)!"
     }
 }

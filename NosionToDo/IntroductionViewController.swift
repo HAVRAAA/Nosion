@@ -11,52 +11,50 @@ class IntroductionViewController: UIViewController {
     
     let startButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .red
         button.addTarget(self, action: #selector(startClicked), for: .touchUpInside)
-        button.setTitle(String("Start"), for: .normal)
-        button.tintColor = UIColor.black
-        button.layer.cornerRadius = 35
+        button.setImage(UIImage(named: "taskEmpty"), for: .normal)
+        button.setImage(UIImage(named: "taskFull"), for: .highlighted)
+        button.backgroundColor = .clear
+        button.tintColor = .black
+        button.contentMode = .scaleToFill
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    let logotypeNosion: UILabel = {
-        let logotype = UILabel()
-        logotype.text = "LogoThis"
-        logotype.textColor = .black
-        logotype.textAlignment = .center
-        logotype.backgroundColor = .orange
-        logotype.numberOfLines = 0
-        logotype.translatesAutoresizingMaskIntoConstraints = false
-        return logotype
+    let logotypeNosion: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "NosionLogo")
+        view.contentMode = .scaleToFill
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     let logotypeToDo: UILabel = {
         let logotype = UILabel()
-        logotype.text = "Logo"
+        logotype.text = "Tasks in your life"
         logotype.textColor = .black
         logotype.textAlignment = .center
-        logotype.numberOfLines = 0
+        logotype.numberOfLines = 1
         logotype.translatesAutoresizingMaskIntoConstraints = false
         return logotype
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Home"
+        
         view.addSubview(startButton)
         view.addSubview(logotypeNosion)
         view.addSubview(logotypeToDo)
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .white
         setupConstraint()
     }
 
     func setupConstraint() {
         let margins = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            startButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -30),
-            startButton.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
+            startButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -50),
             startButton.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 2/3),
+            startButton.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/3),
             startButton.centerXAnchor.constraint(equalTo: margins.centerXAnchor),
             
             logotypeNosion.bottomAnchor.constraint(equalTo: logotypeToDo.topAnchor, constant: 10),

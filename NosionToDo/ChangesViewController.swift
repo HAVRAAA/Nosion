@@ -92,7 +92,6 @@ class ChangesViewController: UIViewController, UITableViewDataSource, UITableVie
             segment.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/10)
           */
         ])
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

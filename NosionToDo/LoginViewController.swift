@@ -11,10 +11,10 @@ class LoginViewController: UIViewController {
     
     let logotypeNosion: UILabel = {
         let logotype = UILabel()
-        logotype.text = "LogoThis"
+        logotype.text = "Tasks in your life"
         logotype.textColor = .black
         logotype.textAlignment = .center
-        logotype.backgroundColor = .orange
+        logotype.backgroundColor = .clear
         logotype.numberOfLines = 0
         logotype.translatesAutoresizingMaskIntoConstraints = false
         return logotype
@@ -23,9 +23,12 @@ class LoginViewController: UIViewController {
     let nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Press your name"
-        textField.backgroundColor = .systemGreen
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.textAlignment = .center
+        textField.borderStyle = .line
+        textField.clipsToBounds = true
+        textField.layer.borderWidth = 2
         textField.layer.cornerRadius = 20
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -34,33 +37,58 @@ class LoginViewController: UIViewController {
     let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Press your password"
-        textField.backgroundColor = .systemGreen
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.textAlignment = .center
         textField.layer.cornerRadius = 20
+        textField.borderStyle = .line
+        textField.clipsToBounds = true
+        textField.layer.borderWidth = 2
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    let segueButton: UIButton = {
+    let startButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.systemGreen
-        button.addTarget(nil, action: #selector(segueButtonAction), for: .touchUpInside)
-        button.layer.cornerRadius = 20
-        button.setTitle("Enter to List", for: .normal)
+        button.addTarget(self, action: #selector(segueButton), for: .touchUpInside)
+        button.setImage(UIImage(named: "taskEmpty"), for: .normal)
+        button.setImage(UIImage(named: "taskFull"), for: .highlighted)
+        button.backgroundColor = .clear
+        button.tintColor = .black
+        button.contentMode = .scaleToFill
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        
+        addedImageToNavBar()
+        
+        view.backgroundColor = .white
         view.addSubview(nameTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(segueButton)
+        view.addSubview(startButton)
         view.addSubview(logotypeNosion)
         
         setupConstraint()
+    }
+    
+    func addedImageToNavBar() {
+        if let navController = navigationController {
+            let imageLogo = UIImage(named: "NosionLogo.png")
+            let widthNavBar = navController.navigationBar.frame.width
+            let heightNavBar = navController.navigationBar.frame.height
+            let widthForView = widthNavBar * 0.4
+            let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: widthForView, height: heightNavBar))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: widthForView, height: heightNavBar))
+                                       
+            imageView.image = imageLogo
+            imageView.contentMode = .scaleAspectFit
+            logoContainer.addSubview(imageView)
+            
+            navigationItem.titleView = logoContainer
+        }
     }
     
     func setupConstraint() {
@@ -76,21 +104,21 @@ class LoginViewController: UIViewController {
             passwordTextField.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 2/3),
             passwordTextField.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
             
-            segueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            segueButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -25),
-            segueButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3),
-            segueButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/10),
+            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -25),
+            startButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3),
+            startButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/7),
             
             logotypeNosion.topAnchor.constraint(equalTo: margins.topAnchor, constant: 50),
             logotypeNosion.centerXAnchor.constraint(equalTo: margins.centerXAnchor),
             logotypeNosion.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
-            logotypeNosion.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 9/10)
-            
+            logotypeNosion.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 9/10),
         ])
     }
     
-    @objc func segueButtonAction() {
+    @objc func segueButton() {
         let thirdViewController = ListViewController();
+        thirdViewController.nameUser = nameTextField.text!
         self.navigationController?.pushViewController(thirdViewController, animated: true)
     }
 }
