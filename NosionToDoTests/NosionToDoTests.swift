@@ -9,6 +9,8 @@ import XCTest
 @testable import NosionToDo
 
 class NosionToDoTests: XCTestCase {
+    
+    let sut = ListViewController()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,5 +34,21 @@ class NosionToDoTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    func testAddedAWarnCharacter() throws {
+        let newTask = "Buy a cat"
+        
+        
+        let result = try sut.addedExclamationMark(text: newTask)
+        
+        XCTAssertEqual(result, "Buy a cat!")
+    }
+    
+    func testEnterVoidMessage() throws {
+        let voidMessage = ""
+        
+        let result = try sut.addedExclamationMark(text: voidMessage)
+        
+        XCTAssertTrue(result.isEmpty)
+    }
 }

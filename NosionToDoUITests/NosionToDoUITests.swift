@@ -31,12 +31,72 @@ class NosionToDoUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testEnterVoidMessageInAlertTextfield() {
+        let app = XCUIApplication()
+        app.launch()
+
+        
+        app.buttons["taskEmpty"].tap()
+        app.buttons["taskEmpty"].tap()
+        app.navigationBars["NosionToDo.ListView"].buttons["Add"].tap()
+        app.alerts["New task"].scrollViews.otherElements.buttons["Ok"].tap()
+        
+        XCTAssert(app.cells.accessibilityTraits.isEmpty)
+    }
+    
+    func testAddedNewTask() {
+        let app = XCUIApplication()
+        app.launch()
+
+        
+        app.buttons["taskEmpty"].tap()
+        app.buttons["taskEmpty"].tap()
+        app.navigationBars["NosionToDo.ListView"].buttons["Add"].tap()
+        
+        
+        app.alerts.textFields.element.typeText("Buy a new car")
+        app.alerts.scrollViews.otherElements.buttons["Ok"].tap()
+        
+        
+        XCTAssert(app.cells.staticTexts["Buy a new car"].exists)
+    }
+    
+    func testCleanTableSheet() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["taskEmpty"].tap()
+        app.buttons["taskEmpty"].tap()
+        
+        app.navigationBars["NosionToDo.ListView"].buttons["Add"].tap()
+        
+        
+        app.alerts.textFields.element.typeText("Buy a new car")
+        app.alerts.scrollViews.otherElements.buttons["Ok"].tap()
+        
+        app.buttons["C L E A N"].tap()
+        
+        XCTAssert(app.cells.accessibilityTraits.isEmpty)
+    }
+   
+//    func testTransitionUserNameInGreetingMessage() {
+//        let app = XCUIApplication()
+//        app.launch()
+//
+//        app.buttons["taskEmpty"].tap()
+//        app.textFields["Press your name"].tap()
+//        app.textFields["Press your name"].typeText("Maks")
+//
+//        app.buttons["taskEmpty"].tap()
+//    }
+    
+    func testGreetingMessageWithUnknownUser() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["taskEmpty"].tap()
+        app.buttons["taskEmpty"].tap()
+        
+        XCTAssert(app.staticTexts["Hello, world"].exists)
     }
 }
