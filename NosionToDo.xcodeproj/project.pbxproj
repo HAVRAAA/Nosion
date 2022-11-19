@@ -17,6 +17,8 @@
 		2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */; };
 		2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F3E2907DDE400975F7A /* ListViewController.swift */; };
 		2DA0C1DB2923B2AC0099AB60 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C1DA2923B2AC0099AB60 /* UITableViewCell + Extension.swift */; };
+		2DCBB32729291C7400C6CA5F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCBB32629291C7400C6CA5F /* TaskTableViewCell.swift */; };
+		2DCBB32929291EFA00C6CA5F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCBB32829291EFA00C6CA5F /* Constant.swift */; };
 		2DD832C629105F5200FC18E2 /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DD832C429105F5200FC18E2 /* CoreDataDemo.xcdatamodeld */; };
 		2DD832CC2911B1CF00FC18E2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */; };
 		2DD833122912A41D00FC18E2 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833112912A41D00FC18E2 /* AddViewController.swift */; };
@@ -61,6 +63,8 @@
 		2D10A1542923957100E3F10C /* taskFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskFull.png; sourceTree = "<group>"; };
 		2D9B0F3E2907DDE400975F7A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2DA0C1DA2923B2AC0099AB60 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell + Extension.swift"; path = "NosionToDo/Config/Extensions/UITableViewCell + Extension.swift"; sourceTree = SOURCE_ROOT; };
+		2DCBB32629291C7400C6CA5F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		2DCBB32829291EFA00C6CA5F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		2DD832C529105F5200FC18E2 /* CoreDataDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataDemo.xcdatamodel; sourceTree = "<group>"; };
 		2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2DD833112912A41D00FC18E2 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				2DD833112912A41D00FC18E2 /* AddViewController.swift */,
 				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
 				2D9B0F3E2907DDE400975F7A /* ListViewController.swift */,
+				2DCBB32629291C7400C6CA5F /* TaskTableViewCell.swift */,
 				AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */,
 			);
 			path = NosionToDo;
@@ -184,6 +189,7 @@
 			children = (
 				2DD832C429105F5200FC18E2 /* CoreDataDemo.xcdatamodeld */,
 				2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */,
+				2DCBB32829291EFA00C6CA5F /* Constant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,11 +332,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD832C629105F5200FC18E2 /* CoreDataDemo.xcdatamodeld in Sources */,
+				2DCBB32729291C7400C6CA5F /* TaskTableViewCell.swift in Sources */,
 				2D0B2F0D28FD75C70068FE62 /* IntroductionViewController.swift in Sources */,
 				2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */,
 				2DA0C1DB2923B2AC0099AB60 /* UITableViewCell + Extension.swift in Sources */,
 				2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */,
 				2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */,
+				2DCBB32929291EFA00C6CA5F /* Constant.swift in Sources */,
 				2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */,
 				2DD832CC2911B1CF00FC18E2 /* CoreDataManager.swift in Sources */,
 				2DD833122912A41D00FC18E2 /* AddViewController.swift in Sources */,

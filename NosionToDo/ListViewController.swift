@@ -125,7 +125,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // For TableView
         tableSheet.delegate = self
         tableSheet.dataSource = self
-        tableSheet.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableSheet.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.cellIdentifier)
         
         // Style ViewController
         view.backgroundColor = .white
@@ -301,16 +301,31 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        let taskInCell = fetchResultController.object(at: indexPath) as! Task
-        cell.textLabel!.text = taskInCell.task
-        // cell.textLabel!.text = self.listToDo[indexPath.row]
-        if taskInCell.done {
-            cell.backgroundColor = .systemGreen
-        } else {
-            cell.backgroundColor = .red
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.cellIdentifier, for: indexPath) as? TaskTableViewCell {
+            let taskInCell = fetchResultController.object(at: indexPath) as! Task
+            cell.taskLabel.text = taskInCell.task
+            
+            if taskInCell.done {
+                cell.statusImageView.image = UIImage(named: "taskFull")
+            } else {
+                cell.statusImageView.image = UIImage(named: "taskEmpty")
+            }
+            
+            return cell
         }
-        return cell
+        
+        return UITableViewCell()
+//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+//        let taskInCell = fetchResultController.object(at: indexPath) as! Task
+//        cell.textLabel!.text = taskInCell.task
+//        // cell.textLabel!.text = self.listToDo[indexPath.row]
+//        if taskInCell.done {
+//            cell.backgroundColor = .systemGreen
+//        } else {
+//            cell.backgroundColor = .red
+//        }
+//        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -329,4 +344,5 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return "\(text)!"
     }
+    
 }
