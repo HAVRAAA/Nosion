@@ -10,7 +10,6 @@ import CoreData
 
 class LoginViewController: UIViewController {
     
-    
     let newUser = User()
     
     var usersArray: [String] = []
@@ -57,14 +56,10 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-  
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         transitionButton.addTarget(self, action: #selector(segueButtonAction), for: .touchUpInside)
-        
         
         addedImageToNavBar()
         
@@ -130,38 +125,36 @@ class LoginViewController: UIViewController {
     
     @objc func segueButtonAction() {
         let thirdViewController = ListViewController();
-//        thirdViewController.nameUser = nameTextField.text!
+        thirdViewController.nameUser = nameTextField.text!
         self.navigationController?.pushViewController(thirdViewController, animated: true)
         
-        
-        
-        
-        let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)
-        do {
-            let results = try CoreDataManager.shared.context.fetch(fetchRequestUser)
-            for result in results as! [User] {
-                print("name: \(result.name!) and he has a password: \(result.password!)")
-                CoreDataManager.shared.saveContext()
-            }
-            
-        } catch {
-            print(error)
-        }
-        
-        let newUser = User()
-        
-        newUser.name = nameTextField.text
-        newUser.password = passwordTextField.text
-        
-        CoreDataManager.shared.saveContext()
-        let newUserNameTest = newUser.name
-        let newUserPassTest = newUser.password
-        print("\(newUserNameTest!) and he has a password: \(newUserPassTest!)")
-        
-        
-        
-        self.navigationController?.pushViewController(thirdViewController, animated: true)
-        CoreDataManager.shared.saveContext()
+        // ADDED SECOND ENTITY
+//        let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)
+//        do {
+//            let results = try CoreDataManager.shared.context.fetch(fetchRequestUser)
+//            for result in results as! [User] {
+//                print("name: \(result.name!) and he has a password: \(result.password!)")
+//                CoreDataManager.shared.saveContext()
+//            }
+//
+//        } catch {
+//            print(error)
+//        }
+//
+//        let newUser = User()
+//
+//        newUser.name = nameTextField.text
+//        newUser.password = passwordTextField.text
+//
+//        CoreDataManager.shared.saveContext()
+//        let newUserNameTest = newUser.name
+//        let newUserPassTest = newUser.password
+//        print("\(newUserNameTest!) and he has a password: \(newUserPassTest!)")
+//
+//
+//
+//        self.navigationController?.pushViewController(thirdViewController, animated: true)
+//        CoreDataManager.shared.saveContext()
         
         
     }

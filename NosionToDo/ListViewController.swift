@@ -209,30 +209,26 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func addedNewElement() {
-        let loginVC = LoginViewController()
+//      let loginVC = LoginViewController()
         
         let alertCont = UIAlertController(title: "New task", message: "Print a new task", preferredStyle: .alert)
-        let firstAction = UIAlertAction(title: "Ok", style: .default) { [weak self] (action) in
+        let firstAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             let text = alertCont.textFields!.first!.text!
             let managedObject = Task()
-            if text.count != 0 {
-                
-                
-
-                
+                if text.count != 0 {
+                    managedObject.task = text
+                    CoreDataManager.shared.saveContext()
+                    self.fetchCoreData()
+                    self.tableSheet.reloadData()
                 }
-                
-                
-                
                 // new changes
-                managedObject.task = text
-                loginVC.newUser.addToTask(managedObject)
-                CoreDataManager.shared.saveContext()
-                self?.fetchCoreData()
-                self?.tableSheet.reloadData()
-                print(loginVC.newUser.task!)
-            }
-        
+//              print(loginVC.newUser.task!)
+//              managedObject.task = text
+//              loginVC.newUser.addToTask(managedObject)
+//                CoreDataManager.shared.saveContext()
+//                self?.fetchCoreData()
+//                self?.tableSheet.reloadData()
+        }
         
         let secondAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertCont.addAction(firstAction)

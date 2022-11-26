@@ -32,10 +32,6 @@ class IntroductionViewController: UIViewController {
         view.backgroundColor = .white
         setupConstraint()
         startAnimate()
-        
-        
-        
-        
     }
     
     func startAnimate() {

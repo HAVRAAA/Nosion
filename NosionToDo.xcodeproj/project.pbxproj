@@ -107,10 +107,6 @@
 		2D0B2EFC28FD75C70068FE62 = {
 			isa = PBXGroup;
 			children = (
-				2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */,
-				2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */,
-				2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */,
-				2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */,
 				2D0B2F0728FD75C70068FE62 /* NosionToDo */,
 				2D0B2F1E28FD75CA0068FE62 /* NosionToDoTests */,
 				2D0B2F2828FD75CA0068FE62 /* NosionToDoUITests */,
@@ -131,17 +127,18 @@
 		2D0B2F0728FD75C70068FE62 /* NosionToDo */ = {
 			isa = PBXGroup;
 			children = (
+				2DCDA3822932D0F100ACAAEC /* CoreDataFiles */,
 				AA99557B291C186100717E15 /* Extensions */,
 				2DD832CF2911C4DE00FC18E2 /* Model */,
 				2DD832CD2911C43A00FC18E2 /* Entity */,
 				2DD832CE2911C45300FC18E2 /* Config */,
 				2DD833112912A41D00FC18E2 /* AddViewController.swift */,
+				2D860B412930270300BAFF44 /* Constant.swift */,
 				2D1FF1A6292BAFF300D6C58F /* Buttons.swift */,
 				2D802592292CE19700835A1B /* Label.swift */,
 				2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */,
 				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
 				2D9B0F3E2907DDE400975F7A /* ListViewController.swift */,
-				2D860B412930270300BAFF44 /* Constant.swift */,
 				AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */,
 			);
 			path = NosionToDo;
@@ -173,6 +170,17 @@
 				2D10A1522923957100E3F10C /* arrow.png */,
 			);
 			path = Picture;
+			sourceTree = "<group>";
+		};
+		2DCDA3822932D0F100ACAAEC /* CoreDataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */,
+				2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */,
+				2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */,
+				2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */,
+			);
+			path = CoreDataFiles;
 			sourceTree = "<group>";
 		};
 		2DD832CD2911C43A00FC18E2 /* Entity */ = {
