@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  NosionToDo
 //
-//  Created by Максим Гаврилюк on 06.11.2022.
+//  Created by Максим Гаврилюк on 25.11.2022.
 //
 //
 
@@ -16,8 +16,10 @@ extension Task {
         return NSFetchRequest<Task>(entityName: "Task")
     }
 
-    @NSManaged public var task: String?
     @NSManaged public var done: Bool
+    @NSManaged public var task: String?
+    @NSManaged public var taskID: UUID?
+    @NSManaged public var user: User?
 
 }
 

@@ -67,9 +67,9 @@ class AddViewController: UIViewController {
     }
     
     @objc func buttonClicked() {
-        let newTask = textFieldName.text
+//        let newTask = textFieldName.text
         let destination = ListViewController()
-        destination.listToDo.append(newTask!)
+        //destination.listToDo.append(newTask!)
         destination.tableSheet.reloadData()
     }
 

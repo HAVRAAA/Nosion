@@ -15,13 +15,18 @@
 		2D0B2F2A28FD75CA0068FE62 /* NosionToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2928FD75CA0068FE62 /* NosionToDoUITests.swift */; };
 		2D0B2F2C28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F2B28FD75CA0068FE62 /* NosionToDoUITestsLaunchTests.swift */; };
 		2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */; };
+		2D1FF1A7292BAFF300D6C58F /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1FF1A6292BAFF300D6C58F /* Buttons.swift */; };
+		2D802593292CE19700835A1B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D802592292CE19700835A1B /* Label.swift */; };
+		2D860B422930270300BAFF44 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D860B412930270300BAFF44 /* Constant.swift */; };
+		2D860B4F2930EAF500BAFF44 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */; };
+		2D860B502930EAF500BAFF44 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */; };
+		2D860B512930EAF500BAFF44 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */; };
+		2D860B522930EAF500BAFF44 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */; };
 		2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B0F3E2907DDE400975F7A /* ListViewController.swift */; };
 		2DA0C1DB2923B2AC0099AB60 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0C1DA2923B2AC0099AB60 /* UITableViewCell + Extension.swift */; };
 		2DD832C629105F5200FC18E2 /* CoreDataDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DD832C429105F5200FC18E2 /* CoreDataDemo.xcdatamodeld */; };
 		2DD832CC2911B1CF00FC18E2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */; };
 		2DD833122912A41D00FC18E2 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833112912A41D00FC18E2 /* AddViewController.swift */; };
-		2DD833152917F70900FC18E2 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833132917F70900FC18E2 /* Task+CoreDataClass.swift */; };
-		2DD833162917F70900FC18E2 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD833142917F70900FC18E2 /* Task+CoreDataProperties.swift */; };
 		AA2DA5FA291C155C00A4BEB6 /* ChangesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,13 +64,18 @@
 		2D10A1522923957100E3F10C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		2D10A1532923957100E3F10C /* NosionLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NosionLogo.png; sourceTree = "<group>"; };
 		2D10A1542923957100E3F10C /* taskFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskFull.png; sourceTree = "<group>"; };
+		2D1FF1A6292BAFF300D6C58F /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		2D802592292CE19700835A1B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		2D860B412930270300BAFF44 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D9B0F3E2907DDE400975F7A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2DA0C1DA2923B2AC0099AB60 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableViewCell + Extension.swift"; path = "NosionToDo/Config/Extensions/UITableViewCell + Extension.swift"; sourceTree = SOURCE_ROOT; };
 		2DD832C529105F5200FC18E2 /* CoreDataDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataDemo.xcdatamodel; sourceTree = "<group>"; };
 		2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2DD833112912A41D00FC18E2 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		2DD833132917F70900FC18E2 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2DD833142917F70900FC18E2 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +107,10 @@
 		2D0B2EFC28FD75C70068FE62 = {
 			isa = PBXGroup;
 			children = (
+				2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */,
+				2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */,
+				2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */,
+				2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */,
 				2D0B2F0728FD75C70068FE62 /* NosionToDo */,
 				2D0B2F1E28FD75CA0068FE62 /* NosionToDoTests */,
 				2D0B2F2828FD75CA0068FE62 /* NosionToDoUITests */,
@@ -121,10 +135,13 @@
 				2DD832CF2911C4DE00FC18E2 /* Model */,
 				2DD832CD2911C43A00FC18E2 /* Entity */,
 				2DD832CE2911C45300FC18E2 /* Config */,
-				2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */,
 				2DD833112912A41D00FC18E2 /* AddViewController.swift */,
+				2D1FF1A6292BAFF300D6C58F /* Buttons.swift */,
+				2D802592292CE19700835A1B /* Label.swift */,
+				2D0B2F0C28FD75C70068FE62 /* IntroductionViewController.swift */,
 				2D0B2F3D28FD7DF40068FE62 /* LoginViewController.swift */,
 				2D9B0F3E2907DDE400975F7A /* ListViewController.swift */,
+				2D860B412930270300BAFF44 /* Constant.swift */,
 				AA2DA5F9291C155C00A4BEB6 /* ChangesViewController.swift */,
 			);
 			path = NosionToDo;
@@ -161,8 +178,6 @@
 		2DD832CD2911C43A00FC18E2 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				2DD833132917F70900FC18E2 /* Task+CoreDataClass.swift */,
-				2DD833142917F70900FC18E2 /* Task+CoreDataProperties.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -182,8 +197,8 @@
 		2DD832CF2911C4DE00FC18E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2DD832C429105F5200FC18E2 /* CoreDataDemo.xcdatamodeld */,
 				2DD832CB2911B1CF00FC18E2 /* CoreDataManager.swift */,
+				2DD832C429105F5200FC18E2 /* CoreDataDemo.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,17 +341,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD832C629105F5200FC18E2 /* CoreDataDemo.xcdatamodeld in Sources */,
+				2D860B422930270300BAFF44 /* Constant.swift in Sources */,
 				2D0B2F0D28FD75C70068FE62 /* IntroductionViewController.swift in Sources */,
 				2D9B0F3F2907DDE400975F7A /* ListViewController.swift in Sources */,
+				2D1FF1A7292BAFF300D6C58F /* Buttons.swift in Sources */,
 				2DA0C1DB2923B2AC0099AB60 /* UITableViewCell + Extension.swift in Sources */,
+				2D860B4F2930EAF500BAFF44 /* User+CoreDataClass.swift in Sources */,
 				2D0B2F0928FD75C70068FE62 /* AppDelegate.swift in Sources */,
+				2D860B502930EAF500BAFF44 /* User+CoreDataProperties.swift in Sources */,
 				2D0B2F3E28FD7DF40068FE62 /* LoginViewController.swift in Sources */,
+				2D860B522930EAF500BAFF44 /* Task+CoreDataProperties.swift in Sources */,
+				2D860B512930EAF500BAFF44 /* Task+CoreDataClass.swift in Sources */,
 				2D0B2F0B28FD75C70068FE62 /* SceneDelegate.swift in Sources */,
 				2DD832CC2911B1CF00FC18E2 /* CoreDataManager.swift in Sources */,
+				2D802593292CE19700835A1B /* Label.swift in Sources */,
 				2DD833122912A41D00FC18E2 /* AddViewController.swift in Sources */,
-				2DD833162917F70900FC18E2 /* Task+CoreDataProperties.swift in Sources */,
 				AA2DA5FA291C155C00A4BEB6 /* ChangesViewController.swift in Sources */,
-				2DD833152917F70900FC18E2 /* Task+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

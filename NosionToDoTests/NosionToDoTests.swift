@@ -34,21 +34,4 @@ class NosionToDoTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
-    func testAddedAWarnCharacter() throws {
-        let newTask = "Buy a cat"
-        
-        
-        let result = try sut.addedExclamationMark(text: newTask)
-        
-        XCTAssertEqual(result, "Buy a cat!")
-    }
-    
-    func testEnterVoidMessage() throws {
-        let voidMessage = ""
-        
-        let result = try sut.addedExclamationMark(text: voidMessage)
-        
-        XCTAssertTrue(result.isEmpty)
-    }
 }

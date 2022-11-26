@@ -6,19 +6,28 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
     
-    let logotypeNosion: UILabel = {
-        let logotype = UILabel()
-        logotype.text = "Tasks in your life"
-        logotype.textColor = .black
-        logotype.textAlignment = .center
-        logotype.backgroundColor = .clear
-        logotype.numberOfLines = 0
-        logotype.translatesAutoresizingMaskIntoConstraints = false
-        return logotype
+    
+    let newUser = User()
+    
+    var usersArray: [String] = []
+        
+    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
+        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                 managedObjectContext: CoreDataManager.shared.context,
+                                                                 sectionNameKeyPath: nil,
+                                                                 cacheName: nil)
+        return fetchedResultController
     }()
+    
+    let sloganNosionLabel = CustomLabels().sloganLabel
+    let transitionButton = CustomButtons().segueButton
     
     let nameTextField: UITextField = {
         let textField = UITextField()
@@ -48,30 +57,33 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    let startButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.addTarget(self, action: #selector(segueButton), for: .touchUpInside)
-        button.setImage(UIImage(named: "taskEmpty"), for: .normal)
-        button.setImage(UIImage(named: "taskFull"), for: .highlighted)
-        button.backgroundColor = .clear
-        button.tintColor = .black
-        button.contentMode = .scaleToFill
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+  
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        transitionButton.addTarget(self, action: #selector(segueButtonAction), for: .touchUpInside)
+        
         
         addedImageToNavBar()
         
         view.backgroundColor = .white
         view.addSubview(nameTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(startButton)
-        view.addSubview(logotypeNosion)
+        view.addSubview(transitionButton)
+        view.addSubview(sloganNosionLabel)
         
         setupConstraint()
+        addedImageToNavBar()
+    }
+    
+    func fetchCoreData() {
+        do {
+            try fetchResultController.performFetch()
+        } catch {
+            print(error)
+        }
     }
     
     func addedImageToNavBar() {
@@ -104,21 +116,92 @@ class LoginViewController: UIViewController {
             passwordTextField.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 2/3),
             passwordTextField.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
             
-            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            startButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -25),
-            startButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3),
-            startButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/7),
+            transitionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            transitionButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -25),
+            transitionButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1/3),
+            transitionButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/7),
             
-            logotypeNosion.topAnchor.constraint(equalTo: margins.topAnchor, constant: 50),
-            logotypeNosion.centerXAnchor.constraint(equalTo: margins.centerXAnchor),
-            logotypeNosion.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
-            logotypeNosion.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 9/10),
+            sloganNosionLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: 50),
+            sloganNosionLabel.centerXAnchor.constraint(equalTo: margins.centerXAnchor),
+            sloganNosionLabel.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 1/10),
+            sloganNosionLabel.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 9/10),
         ])
     }
     
-    @objc func segueButton() {
+    @objc func segueButtonAction() {
         let thirdViewController = ListViewController();
-        thirdViewController.nameUser = nameTextField.text!
+//        thirdViewController.nameUser = nameTextField.text!
         self.navigationController?.pushViewController(thirdViewController, animated: true)
+        
+        
+        
+        
+        let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)
+        do {
+            let results = try CoreDataManager.shared.context.fetch(fetchRequestUser)
+            for result in results as! [User] {
+                print("name: \(result.name!) and he has a password: \(result.password!)")
+                CoreDataManager.shared.saveContext()
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+        let newUser = User()
+        
+        newUser.name = nameTextField.text
+        newUser.password = passwordTextField.text
+        
+        CoreDataManager.shared.saveContext()
+        let newUserNameTest = newUser.name
+        let newUserPassTest = newUser.password
+        print("\(newUserNameTest!) and he has a password: \(newUserPassTest!)")
+        
+        
+        
+        self.navigationController?.pushViewController(thirdViewController, animated: true)
+        CoreDataManager.shared.saveContext()
+        
+        
     }
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
