@@ -26,7 +26,6 @@ class CoreDataManager {
     }
     
     lazy var persistentContainer: NSPersistentContainer = {
-        
         let container = NSPersistentContainer(name: "CoreDataDemo")
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
@@ -49,6 +48,73 @@ class CoreDataManager {
             }
         }
     }
+    
+    
+    // MARK: ADD
+    func user(nameParam: String, passwordParam: String) -> User {
+        let user = User(context: context)
+        user.name = nameParam
+        user.password = passwordParam
+        return user
+    }
+    
+    func task(taskParam: String, userParam: User) -> Task {
+        let task = Task(context: context)
+        task.task = taskParam
+        task.done = false
+        userParam.addToTask(task)
+        return task
+    }
+    
+    
+    
+    
+    // MARK: DELETE
+    
+    func deleteTask(task: Task) {
+        let context = persistentContainer.viewContext
+        context.delete(task)
+        saveContext()
+    }
+    
+    func deleteUser(user: User) {
+        let context = persistentContainer.viewContext
+        context.delete(user)
+        saveContext()
+    }
+    
+    
+    func users() -> [User] {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        var fetchedUsers: [User] = []
+        
+        do {
+            fetchedUsers = try persistentContainer.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetching users \(error)")
+        }
+        return fetchedUsers
+    }
+    
+    func tasks(user: User) -> [Task] {
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        request.predicate = NSPredicate(format: "user = %@", user)
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        var fetchedTasks: [Task] = []
+        
+        do {
+            fetchedTasks = try persistentContainer.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetching songs \(error)")
+        }
+        return fetchedTasks
+    }
+    
+    
+    
+    
+    
     
 }
 

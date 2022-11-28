@@ -33,7 +33,7 @@ class AddViewController: UIViewController {
         button.setTitle("ADD", for: .normal)
         button.tintColor = .black
         button.backgroundColor = .systemGreen
-        button.addTarget(nil, action: #selector(buttonClicked), for: .touchUpInside)
+       // button.addTarget(nil, action: #selector(buttonClicked), for: .touchUpInside)
         button.layer.cornerRadius = 20
         return button
     }()
@@ -66,11 +66,11 @@ class AddViewController: UIViewController {
         ])
     }
     
-    @objc func buttonClicked() {
-//        let newTask = textFieldName.text
-        let destination = ListViewController()
-        //destination.listToDo.append(newTask!)
-        destination.tableSheet.reloadData()
-    }
+//    @objc func buttonClicked() {
+////        let newTask = textFieldName.text
+//        let destination = ListViewController(user: <#User#>)
+//        //destination.listToDo.append(newTask!)
+//        destination.tableSheet.reloadData()
+//    }
 
 }

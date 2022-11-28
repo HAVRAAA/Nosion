@@ -8,26 +8,12 @@
 import UIKit
 import CoreData
 
+var users = [User]()
+
 class LoginViewController: UIViewController {
-    
-    let newUser = User()
-    
-    var usersArray: [String] = []
         
-    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
-        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                                 managedObjectContext: CoreDataManager.shared.context,
-                                                                 sectionNameKeyPath: nil,
-                                                                 cacheName: nil)
-        return fetchedResultController
-    }()
-    
     let sloganNosionLabel = CustomLabels().sloganLabel
     let transitionButton = CustomButtons().segueButton
-    
     let nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Press your name"
@@ -58,7 +44,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        users = CoreDataManager.shared.users()
+        
         transitionButton.addTarget(self, action: #selector(segueButtonAction), for: .touchUpInside)
         
         addedImageToNavBar()
@@ -73,13 +60,7 @@ class LoginViewController: UIViewController {
         addedImageToNavBar()
     }
     
-    func fetchCoreData() {
-        do {
-            try fetchResultController.performFetch()
-        } catch {
-            print(error)
-        }
-    }
+    
     
     func addedImageToNavBar() {
         if let navController = navigationController {
@@ -124,8 +105,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc func segueButtonAction() {
-        let thirdViewController = ListViewController();
-        thirdViewController.nameUser = nameTextField.text!
+    
+        let newUser = CoreDataManager.shared.user(nameParam: nameTextField.text ?? "World111" , passwordParam: passwordTextField.text ?? "Password")        
+        let thirdViewController = ListViewController(user: newUser);
         self.navigationController?.pushViewController(thirdViewController, animated: true)
         
         // ADDED SECOND ENTITY

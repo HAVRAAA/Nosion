@@ -175,10 +175,6 @@
 		2DCDA3822932D0F100ACAAEC /* CoreDataFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */,
-				2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */,
-				2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */,
-				2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */,
 			);
 			path = CoreDataFiles;
 			sourceTree = "<group>";
@@ -186,6 +182,10 @@
 		2DD832CD2911C43A00FC18E2 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				2D860B4B2930EAF500BAFF44 /* User+CoreDataClass.swift */,
+				2D860B4C2930EAF500BAFF44 /* User+CoreDataProperties.swift */,
+				2D860B4D2930EAF500BAFF44 /* Task+CoreDataClass.swift */,
+				2D860B4E2930EAF500BAFF44 /* Task+CoreDataProperties.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";

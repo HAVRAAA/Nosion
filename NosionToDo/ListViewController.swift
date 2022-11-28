@@ -10,21 +10,33 @@ import CoreData
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var user: User?
     var identifier = "idCell"
     var idSegue = 0
     var nameUser = ""
+    var tasks = [Task]()
+    
+    init(user: User) {
+        self.nameUser = user.name!
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // Create controller
-    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
-        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                                 managedObjectContext: CoreDataManager.shared.context,
-                                                                 sectionNameKeyPath: nil,
-                                                                 cacheName: nil)
-        return fetchedResultController
-    }()
+//    var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
+//        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//        let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+//                                                                 managedObjectContext: CoreDataManager.shared.context,
+//                                                                 sectionNameKeyPath: nil,
+//                                                                 cacheName: nil)
+//        return fetchedResultController
+//    }()
     
     let welcomeLabel: UILabel = {
         let label = UILabel()
@@ -38,8 +50,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         label.text = "Hello, world"
         label.textAlignment = .center
         label.clipsToBounds = true
-        
-        
         return label
     }()
 
@@ -93,7 +103,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         button.layer.zPosition = 2
         button.layer.cornerRadius = 20
         return button
-    }()
+    }()t
     
     var tableSheet: UITableView = {
         let table = UITableView()
@@ -105,6 +115,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }()
 
     override func viewDidLoad() {
+        
+        if let user = user {
+            tasks = CoreDataManager.shared.tasks(user: user)
+        }
+        tableSheet.reloadData()
+    
         super.viewDidLoad()
         view.addSubview(tableSheet)
         view.addSubview(clearButton)
@@ -127,7 +143,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Helpful Function
         greetingMessage()
         setupAnchors()
-        fetchCoreData() // Показуємо дані з таблиці
+//        fetchCoreData() // Показуємо дані з таблиці
         addedImageToNavBar()
     }
     func greetingMessage() {
@@ -164,13 +180,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func fetchCoreData() {
-        do {
-            try fetchResultController.performFetch()
-        } catch {
-            print(error)
-        }
-    }
+//    func fetchCoreData() {
+//        do {
+//            try fetchResultController.performFetch()
+//        } catch {
+//            print(error)
+//        }
+//    }
     
     func setupAnchors() {
         let margins = view.layoutMarginsGuide
@@ -212,14 +228,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 //      let loginVC = LoginViewController()
         
         let alertCont = UIAlertController(title: "New task", message: "Print a new task", preferredStyle: .alert)
-        let firstAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+        let firstAction = UIAlertAction(title: "Ok", style: .default) { [self] (action) in
             let text = alertCont.textFields!.first!.text!
-            let managedObject = Task()
                 if text.count != 0 {
-                    managedObject.task = text
+                    let task = CoreDataManager.shared.task(taskParam: text, userParam: user!)
+                    tasks.append(task)
+                    tableSheet.reloadData()
                     CoreDataManager.shared.saveContext()
-                    self.fetchCoreData()
-                    self.tableSheet.reloadData()
                 }
                 // new changes
 //              print(loginVC.newUser.task!)
@@ -242,17 +257,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func cleaned() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
-        do {
-            let results = try CoreDataManager.shared.context.fetch(fetchRequest)
-            for result in results as! [NSManagedObject] {
-                CoreDataManager.shared.context.delete(result)
-            }
-        } catch {
-            print(error)
+        
+        for item in tasks {
+            CoreDataManager.shared.deleteTask(task: item)
         }
+        tasks.removeAll()
+        
+        
+        
+        
         CoreDataManager.shared.saveContext()
-        fetchCoreData()
         tableSheet.reloadData()
         clearButton.isHidden = true
     }
@@ -285,25 +299,24 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 //    }
     // MARK: TableView
     
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = fetchResultController.sections {
-            if sections[section].numberOfObjects > 0 {
+        if tasks.count > 0 {
                 clearButton.isHidden = false
             } else {
                 clearButton.isHidden = true
             }
-            return sections[section].numberOfObjects
-        } else {
-            return 0
-        }
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        let taskInCell = fetchResultController.object(at: indexPath) as! Task
-        cell.textLabel!.text = taskInCell.task
-        // cell.textLabel!.text = self.listToDo[indexPath.row]
-        if taskInCell.done {
+        let task = tasks[indexPath.row]
+        
+        cell.textLabel?.text = task.task
+        if task.done {
             cell.backgroundColor = .systemGreen
         } else {
             cell.backgroundColor = .red
@@ -312,10 +325,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let taskInCell = fetchResultController.object(at: indexPath) as! Task
-        taskInCell.done = !taskInCell.done
-        CoreDataManager.shared.saveContext()
-        fetchCoreData()
+        let task = tasks[indexPath.row]
+        
+        task.done = !task.done
+        
         tableSheet.reloadData()
     }
 }
