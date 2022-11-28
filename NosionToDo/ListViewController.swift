@@ -13,11 +13,27 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var identifier = "idCell"
     var idSegue = 0
     var nameUser = ""
+    var user: User?
+    
+    
+    init(user: User) {
+        self.user = user
+        self.nameUser = "\(user.name!)..."
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    
     
     // Create controller
     var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
-        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: Constant.sortTitle, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                  managedObjectContext: CoreDataManager.shared.context,
@@ -212,11 +228,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 //      let loginVC = LoginViewController()
         
         let alertCont = UIAlertController(title: "New task", message: "Print a new task", preferredStyle: .alert)
-        let firstAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+        let firstAction = UIAlertAction(title: "Ok", style: .default) { [self] (action) in
             let text = alertCont.textFields!.first!.text!
-            let managedObject = Task()
+            let user = user
                 if text.count != 0 {
-                    managedObject.task = text
+                    let newTask = Task()
+                    newTask.title = text
+                    newTask.status = false
+                    user?.addToTask(newTask)
                     CoreDataManager.shared.saveContext()
                     self.fetchCoreData()
                     self.tableSheet.reloadData()
@@ -301,9 +320,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let taskInCell = fetchResultController.object(at: indexPath) as! Task
-        cell.textLabel!.text = taskInCell.task
+        cell.textLabel!.text = taskInCell.title!
         // cell.textLabel!.text = self.listToDo[indexPath.row]
-        if taskInCell.done {
+        if taskInCell.status {
             cell.backgroundColor = .systemGreen
         } else {
             cell.backgroundColor = .red
@@ -313,7 +332,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let taskInCell = fetchResultController.object(at: indexPath) as! Task
-        taskInCell.done = !taskInCell.done
+        taskInCell.status = !taskInCell.status
         CoreDataManager.shared.saveContext()
         fetchCoreData()
         tableSheet.reloadData()

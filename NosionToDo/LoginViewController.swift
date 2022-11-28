@@ -10,13 +10,11 @@ import CoreData
 
 class LoginViewController: UIViewController {
     
-    let newUser = User()
+    var users: Set<User> = []
     
-    var usersArray: [String] = []
-        
     var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityTask)
-        let sortDescriptor = NSSortDescriptor(key: Constant.sortTask, ascending: true)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)
+        let sortDescriptor = NSSortDescriptor(key: "User", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                  managedObjectContext: CoreDataManager.shared.context,
@@ -61,6 +59,8 @@ class LoginViewController: UIViewController {
     
         transitionButton.addTarget(self, action: #selector(segueButtonAction), for: .touchUpInside)
         
+        
+        users = []
         addedImageToNavBar()
         
         view.backgroundColor = .white
@@ -124,9 +124,16 @@ class LoginViewController: UIViewController {
     }
     
     @objc func segueButtonAction() {
-        let thirdViewController = ListViewController();
-        thirdViewController.nameUser = nameTextField.text!
-        self.navigationController?.pushViewController(thirdViewController, animated: true)
+        let nameCheck = nameTextField.text ?? ""
+        let passwordCheck = passwordTextField.text ?? ""
+        
+        var userUser = CoreDataManager.shared.user(name: nameCheck, password: passwordCheck)
+        users.insert(userUser)
+        
+        if users.contains(userUser) {
+            let thirdViewController = ListViewController(user: userUser);
+            self.navigationController?.pushViewController(thirdViewController, animated: true)
+        }
         
         // ADDED SECOND ENTITY
 //        let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)

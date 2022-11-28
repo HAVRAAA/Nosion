@@ -11,6 +11,6 @@ import Foundation
 struct Constant {
     static let entityTask = "Task"
     static let entityUser = "User"
-    static let sortTask = "task"
-    static let sortDone = "done"
+    static let sortTitle = "title"
+    static let sortStatus = "status"
 }

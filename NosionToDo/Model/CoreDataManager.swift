@@ -50,5 +50,26 @@ class CoreDataManager {
         }
     }
     
+    // MARK: CREATE
+    
+    func user(name: String, password: String) -> User {
+        let user = User(context: context)
+        user.name = name
+        user.password = password
+        return user
+    }
+    
+    func task(title: String, user: User) -> Task {
+        let task = Task(context: context)
+        task.title = title
+        task.status = false
+        user.addToTask(task)
+        return task
+    }
+    
+    
+    
+    
+    
 }
 
