@@ -228,17 +228,17 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 //      let loginVC = LoginViewController()
         
         let alertCont = UIAlertController(title: "New task", message: "Print a new task", preferredStyle: .alert)
-        let firstAction = UIAlertAction(title: "Ok", style: .default) { [self] (action) in
+        let firstAction = UIAlertAction(title: "Ok", style: .default) { [weak self] action in
             let text = alertCont.textFields!.first!.text!
-            let user = user
+            let user = self?.user
                 if text.count != 0 {
                     let newTask = Task()
                     newTask.title = text
                     newTask.status = false
                     user?.addToTask(newTask)
                     CoreDataManager.shared.saveContext()
-                    self.fetchCoreData()
-                    self.tableSheet.reloadData()
+                    self?.fetchCoreData()
+                    self?.tableSheet.reloadData()
                 }
                 // new changes
 //              print(loginVC.newUser.task!)
@@ -253,7 +253,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         alertCont.addAction(firstAction)
         alertCont.addAction(secondAction)
         alertCont.addTextField(configurationHandler: nil)
-        self.present(alertCont, animated: true, completion: nil)
+        present(alertCont, animated: true, completion: nil)
     }
     
     @objc func addSecondElement() {
@@ -317,6 +317,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    #warning("Remove force unwrap!")
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let taskInCell = fetchResultController.object(at: indexPath) as! Task

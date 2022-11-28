@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     
     var fetchResultController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)
-        let sortDescriptor = NSSortDescriptor(key: "User", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: Constant.entityUserSort, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                  managedObjectContext: CoreDataManager.shared.context,
@@ -127,81 +127,20 @@ class LoginViewController: UIViewController {
         let nameCheck = nameTextField.text ?? ""
         let passwordCheck = passwordTextField.text ?? ""
         
-        var userUser = CoreDataManager.shared.user(name: nameCheck, password: passwordCheck)
+        let userUser = CoreDataManager.shared.user(name: nameCheck, password: passwordCheck)
         users.insert(userUser)
         
+        fetchCoreData()
+        
+        guard
+            let users: [User] = fetchResultController.fetchedObjects?.map({ $0 as? User }).compactMap({ $0 }),
+            !users.isEmpty
+        else {
+            return
+        }
         if users.contains(userUser) {
             let thirdViewController = ListViewController(user: userUser);
-            self.navigationController?.pushViewController(thirdViewController, animated: true)
+            navigationController?.pushViewController(thirdViewController, animated: true)
         }
-        
-        // ADDED SECOND ENTITY
-//        let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: Constant.entityUser)
-//        do {
-//            let results = try CoreDataManager.shared.context.fetch(fetchRequestUser)
-//            for result in results as! [User] {
-//                print("name: \(result.name!) and he has a password: \(result.password!)")
-//                CoreDataManager.shared.saveContext()
-//            }
-//
-//        } catch {
-//            print(error)
-//        }
-//
-//        let newUser = User()
-//
-//        newUser.name = nameTextField.text
-//        newUser.password = passwordTextField.text
-//
-//        CoreDataManager.shared.saveContext()
-//        let newUserNameTest = newUser.name
-//        let newUserPassTest = newUser.password
-//        print("\(newUserNameTest!) and he has a password: \(newUserPassTest!)")
-//
-//
-//
-//        self.navigationController?.pushViewController(thirdViewController, animated: true)
-//        CoreDataManager.shared.saveContext()
-        
-        
     }
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
